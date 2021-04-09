@@ -23,6 +23,10 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 # Use RSpec for unit testing
 gem 'rspec', '~> 3.10'
+# Devise is a flexible authentication solution for Rails based on Warden. Read more: https://github.com/heartcombo/devise
+gem 'devise'
+# Ffi
+gem 'ffi', '~> 1.12.2'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
