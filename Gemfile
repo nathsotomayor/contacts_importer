@@ -21,8 +21,6 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-# Use RSpec for unit testing
-gem 'rspec', '~> 3.10'
 # Devise is a flexible authentication solution for Rails based on Warden. Read more: https://github.com/heartcombo/devise
 gem 'devise'
 # Ffi
@@ -37,6 +35,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  # Use RSpec for unit testing
+  gem 'rspec-rails'
 end
 
 group :development do
