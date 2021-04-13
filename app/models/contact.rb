@@ -6,6 +6,11 @@ class Contact < ApplicationRecord
             format: { with: /\A(\(\+\d{2}\)[\s]\d{3}[\s]\d{3}[\s]\d{2}[\s]\d{2})|(\(\+\d{2}\)[\s]\d{3}[-]\d{3}[-]\d{2}[-]\d{2})\z/,
             message: "(+00) 000 000 00 00 and (+00) 000-000-00-00 are the only telephone formats permitted" }
 
+  validate :birthday_format
+
+  def birthday_format
+    Date.iso8601(birthday)
+  end
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
