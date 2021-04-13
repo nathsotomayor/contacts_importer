@@ -19,7 +19,7 @@ The tests were implemented under the RSpec testing framework for Rails with the 
 
 To run the tests use the following options:
 
-```
+```bash
 # Default: Run all spec files (i.e., those matching spec/**/*_spec.rb)
 $ bundle exec rspec
 
