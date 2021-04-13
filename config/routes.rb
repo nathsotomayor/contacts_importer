@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
+  root "home#index"
   resources :contacts do
     collection {post :import}
   end
-  root to: "home#index"
 end
