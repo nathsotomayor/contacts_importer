@@ -1,1 +1,5 @@
-<h1>Contacts Importer App</h1>
+<% if user_signed_in? %>
+  <%= controller.redirect_to contacts_path %>
+<% else %>
+  <%= render partial: "home" %>
+<% end %>
