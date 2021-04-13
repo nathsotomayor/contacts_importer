@@ -1,5 +1,7 @@
 class Contact < ApplicationRecord
   validates :name, :email, :address, :birthday, :credit_card_number, :credit_card_franchise, presence: true
+  
+  validates :name, format: { with: /\A[a-zA-Z\s-]+\z/, message: 'cannot have special characters, you can use only "-" ' }
   validates :telephone, presence: true,
             format: { with: /\A(\(\+\d{2}\)[\s]\d{3}[\s]\d{3}[\s]\d{2}[\s]\d{2})|(\(\+\d{2}\)[\s]\d{3}[-]\d{3}[-]\d{2}[-]\d{2})\z/,
             message: "(+00) 000 000 00 00 and (+00) 000-000-00-00 are the only telephone formats permitted" }
