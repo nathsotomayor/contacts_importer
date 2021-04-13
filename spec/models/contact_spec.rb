@@ -4,7 +4,8 @@ RSpec.describe Contact, type: :model do
   describe '#validations' do
     let(:contact) { Contact.new() }
 
-    it "is valid with a firstname, lastname and email" do
+    it "is valid with a name, telephone, email, address,
+    birthday, credit card number, credit_card_franchise" do
       contact = Contact.new(
         name: 'Joseph',
         telephone: '3119087632',
