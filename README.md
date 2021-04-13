@@ -37,5 +37,7 @@ $ bundle exec rspec --help
 ```
 
 To know more about RSpec and `rspec-rails` gem see this links:
+
 [RSpec testing framework](http://rspec.info/)
+
 [rspec-rails documentation](https://github.com/rspec/rspec-rails)
