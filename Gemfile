@@ -25,6 +25,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 # Ffi
 gem 'ffi', '~> 1.12.2'
+# credit_card_validations Gem for validating credit card numbers, generating valid numbers, luhn checks. Read more: https://github.com/didww/credit_card_validations
+gem 'credit_card_validations'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
