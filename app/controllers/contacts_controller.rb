@@ -6,7 +6,7 @@ class ContactsController < ApplicationController
   end
 
   def import
-    Contact.import(params[:file])
+    Contact.import(params[:file], current_user)
     redirect_to contacts_path, notice: "Contacts imported successfully!"
   end
 
