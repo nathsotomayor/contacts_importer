@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_14_203018) do
+ActiveRecord::Schema.define(version: 2021_04_14_204040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2021_04_14_203018) do
     t.string "birthday", null: false
     t.string "credit_card_number", default: "", null: false
     t.string "credit_card_franchise", default: "", null: false
-    t.integer "status"
     t.string "credit_card_last_digits", default: ""
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
