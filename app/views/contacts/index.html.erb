@@ -30,7 +30,7 @@
         <td><%= contact.email %></td>
         <td><%= contact.address %></td>
         <td><%= custom_format_date(contact.birthday) %></td>
-        <td><%= contact.credit_card_number %></td>
+        <td>**************<%= contact.credit_card_last_digits %></td>
         <td><%= contact.credit_card_franchise %></td>
         <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -23,10 +23,22 @@ class Contact < ApplicationRecord
 
   validate :birthday_format
 
+  validate :setting_last_digits
+
+  after_validation :credit_card_encryption
+
   def birthday_format
     Date.iso8601(birthday)
   rescue StandardError
     errors.add(:birthday, 'only formats YYYYMMDD and YYYY-MM-DD are allowed')
+  end
+
+  def setting_last_digits
+    self.credit_card_last_digits = CreditCard.new(credit_card_last_digits).last_four_digits
+  end
+
+  def credit_card_encryption
+    self.credit_card_number = CreditCard.new(credit_card_number).encryption
   end
 
   def self.import(file, user)
@@ -37,6 +49,7 @@ class Contact < ApplicationRecord
                                   birthday: contact_hash['birthday'],
                                   credit_card_number: contact_hash['credit_card_number'],
                                   credit_card_franchise: contact_hash['credit_card_number'].credit_card_brand_name,
+                                  credit_card_last_digits: contact_hash['credit_card_number'],
                                   user_id: user.id)
       contact.update(contact_hash)
     end
