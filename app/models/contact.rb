@@ -19,18 +19,23 @@ class Contact < ApplicationRecord
             format: { with: /\A(\(\+\d{2}\)[\s]\d{3}[\s]\d{3}[\s]\d{2}[\s]\d{2})|(\(\+\d{2}\)[\s]\d{3}[-]\d{3}[-]\d{2}[-]\d{2})\z/,
             message: "(+00) 000 000 00 00 and (+00) 000-000-00-00 are the only telephone formats permitted" }
 
-  #validates :credit_card_number, credit_card_number: true
+  validates :credit_card_number, credit_card_number: true
 
   validate :birthday_format
-
+  validate :detect_franchise
   validate :setting_last_digits
 
   after_validation :credit_card_encryption
 
   def birthday_format
     Date.iso8601(birthday)
-  rescue StandardError
+  rescue
     errors.add(:birthday, 'only formats YYYYMMDD and YYYY-MM-DD are allowed')
+  end
+
+  def detect_franchise
+    CreditCard.new(credit_card_number)
+    self.credit_card_franchise = CreditCardValidations::Detector.new(credit_card_number).brand_name
   end
 
   def setting_last_digits
