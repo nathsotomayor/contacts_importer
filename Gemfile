@@ -27,6 +27,8 @@ gem 'devise'
 gem 'ffi', '~> 1.12.2'
 # credit_card_validations Gem for validating credit card numbers, generating valid numbers, luhn checks. Read more: https://github.com/didww/credit_card_validations
 gem 'credit_card_validations'
+# Pagination library for Rails, Sinatra, Merb, DataMapper, and more. Read more: https://github.com/mislav/will_paginate
+gem 'will_paginate', '~> 3.3'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

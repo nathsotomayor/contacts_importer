@@ -1,8 +1,11 @@
 class ContactsController < ApplicationController
   before_action :set_contact, only: %i[ show update destroy ]
+  before_action :authenticate_user!
 
   def index
-    @contacts = Contact.all
+    if user_signed_in?
+      @contacts = current_user.contacts.paginate(page: params[:page], per_page: 3)
+    end
   end
 
   def import
@@ -14,7 +17,7 @@ class ContactsController < ApplicationController
   end
 
   def new
-    @contact = Contact.new
+    @contact = current_user.contacts.build
   end
 
   def create
@@ -57,6 +60,6 @@ class ContactsController < ApplicationController
     end
 
     def contact_params
-      params.require(:contact).permit(:name, :telephone, :email, :address, :birthday, :credit_card_number, :credit_card_franchise)
+      params.require(:contact).permit(:user_id, :name, :telephone, :email, :address, :birthday, :credit_card_number, :credit_card_franchise)
     end
 end
