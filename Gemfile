@@ -29,6 +29,8 @@ gem 'ffi', '~> 1.12.2'
 gem 'credit_card_validations'
 # Pagination library for Rails, Sinatra, Merb, DataMapper, and more. Read more: https://github.com/mislav/will_paginate
 gem 'will_paginate', '~> 3.3'
+# State machines for Ruby classes (plain Ruby, ActiveRecord, Mongoid, NoBrainer). Read more: https://github.com/aasm/aasm
+gem 'aasm', '~> 5.1', '>= 5.1.1'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
