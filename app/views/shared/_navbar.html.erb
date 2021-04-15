@@ -5,6 +5,17 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item me-3">
+          <%= link_to "Import file", new_imported_file_path %>
+        </li>
+        </li>
+          <%= link_to "Lists of CSV files", imported_files_path %>
+        <li class="nav-item me-3">
+        </li>
+          <%= link_to "Import file", imported_files_path %>
+        <li class="nav-item">
+      </ul>
 
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <% if user_signed_in? %>

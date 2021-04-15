@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <%= controller.redirect_to contacts_path %>
+  <%= controller.redirect_to new_imported_file_path %>
 <% else %>
   <%= render partial: "home" %>
 <% end %>
