@@ -2,7 +2,7 @@
 
 <p>
   <strong>Import:</strong>
-  <%= form_tag import_contacts_path, multipart: true do %>
+  <%= form_tag import_imported_files_path, multipart: true do %>
     <%= file_field_tag :file %>
     <%= submit_tag "Import Contacts" %>
   <% end %>

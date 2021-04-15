@@ -8,16 +8,10 @@ class ContactsController < ApplicationController
     end
   end
 
-  def import
-    Contact.import(params[:file], current_user)
-    redirect_to contacts_path, notice: "Contacts imported successfully!"
-  end
-
   def show
   end
 
   def new
-    @contact = current_user.contacts.build
   end
 
   def create
