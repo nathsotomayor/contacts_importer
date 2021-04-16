@@ -1,9 +1,9 @@
 <h1>Import File</h1>
 
-<p>
-  <strong>Import:</strong>
+<div class="mb-3">
+  <label for="formFile" class="form-label">Select a CSV file to import</label>
   <%= form_tag import_imported_files_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <%= submit_tag "Import Contacts" %>
+    <label><%= file_field_tag :file, :required => true, class: 'form-control' %></label>
+    <label><%= submit_tag "Import Contacts", class: 'btn btn-secondary' %></label>
   <% end %>
-</p>
+</div>
