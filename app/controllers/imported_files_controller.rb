@@ -13,9 +13,7 @@ class ImportedFilesController < ApplicationController
     @import_files = current_user.imported_files.build(filename: params[:file].original_filename, state: '')
     if @import_files.save
       @import_files.import(params[:file], current_user)
-      redirect_to contacts_path, notice: "Contacts imported successfully!"
-    else
-      flash.now[:danger] = 'Failed to create a new file.'
+      redirect_to contacts_path, notice: "The file was processed!"
     end
   end
 end

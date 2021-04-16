@@ -1,6 +1,7 @@
 class ImportedFile < ApplicationRecord
   include AASM
   belongs_to :user
+  validates_presence_of :filename
 
   aasm column: 'state' do
     state :waiting, initial: true

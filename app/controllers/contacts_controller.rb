@@ -4,39 +4,7 @@ class ContactsController < ApplicationController
 
   def index
     if user_signed_in?
-      @contacts = current_user.contacts.paginate(page: params[:page], per_page: 3)
-    end
-  end
-
-  def show
-  end
-
-  def new
-  end
-
-  def create
-    @contact = Contact.new(contact_params)
-
-    respond_to do |format|
-      if @contact.save
-        format.html { redirect_to @contact, notice: "Contact was successfully created." }
-        format.json { render :show, status: :created, location: @contact }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def update
-    respond_to do |format|
-      if @contact.update(contact_params)
-        format.html { redirect_to @contact, notice: "Contact was successfully updated." }
-        format.json { render :show, status: :ok, location: @contact }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @contact.errors, status: :unprocessable_entity }
-      end
+      @contacts = current_user.contacts.paginate(page: params[:page], per_page: 4)
     end
   end
 

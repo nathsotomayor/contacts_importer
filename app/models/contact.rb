@@ -1,9 +1,13 @@
 class Contact < ApplicationRecord
   belongs_to :user
 
-  validates :name, :email, :address, :birthday, :credit_card_number, :credit_card_franchise, presence: true
+  validates_presence_of :name, :email, :address, :birthday, :credit_card_number, :credit_card_franchise
 
-  validates :name, format: { with: /\A[a-zA-Z\s-]+\z/, message: 'cannot have special characters, you can use only "-" ' }
+  NAME_FORMAT_REGEX = /\A[a-zA-Z\s-]+\z/
+  EMAIL_FORMAT_REGEX = /\A[^@\s]+@[^@\s]+\z/
+  TELEPHONE_FORMAT_REGGEX = /\A(\(\+\d{2}\)[\s]\d{3}[\s]\d{3}[\s]\d{2}[\s]\d{2})|(\(\+\d{2}\)[\s]\d{3}[-]\d{3}[-]\d{2}[-]\d{2})\z/
+
+  validates :name, format: { with: NAME_FORMAT_REGEX, message: 'cannot have special characters, you can use only "-" ' }
 
   validates :email,
             uniqueness: {
@@ -11,12 +15,12 @@ class Contact < ApplicationRecord
               message: "you can't have two contacts with the same email"
             },
             format: {
-              with: /\A[^@\s]+@[^@\s]+\z/,
+              with: EMAIL_FORMAT_REGEX,
               message: "Must be a valid email address"
             }
 
   validates :telephone, presence: true,
-            format: { with: /\A(\(\+\d{2}\)[\s]\d{3}[\s]\d{3}[\s]\d{2}[\s]\d{2})|(\(\+\d{2}\)[\s]\d{3}[-]\d{3}[-]\d{2}[-]\d{2})\z/,
+            format: { with: TELEPHONE_FORMAT_REGGEX,
             message: "(+00) 000 000 00 00 and (+00) 000-000-00-00 are the only telephone formats permitted" }
 
   validates :credit_card_number, credit_card_number: true

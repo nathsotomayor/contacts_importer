@@ -3,17 +3,19 @@ require 'rails_helper'
 RSpec.describe Contact, type: :model do
   describe '#validations' do
     let(:contact) { Contact.new() }
+    let(:user) { User.create!(email: 'user@example.com', password: 'password') }
 
     it "is valid with a name, telephone, email, address,
-    birthday, credit card number, credit_card_franchise" do
+    birthday, credit card number, credit card franchise" do
       contact = Contact.new(
-        name: 'Joseph',
-        telephone: '3119087632',
+        name: 'Test name',
+        telephone: '(+57) 320-432-05-09',
         email: 'tester@example.com',
         address: 'Calle 4 63-45',
-        birthday: '1962 Julio 15',
+        birthday: '1962-07-15',
         credit_card_number: '4111111111111111',
-        credit_card_franchise: 'Visa')
+        credit_card_franchise: 'Visa',
+        user_id: user.id)
       expect(contact).to be_valid
     end
 

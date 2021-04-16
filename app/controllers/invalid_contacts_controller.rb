@@ -3,7 +3,7 @@ class InvalidContactsController < ApplicationController
 
   def index
     if user_signed_in?
-      @invalid_contacts = current_user.invalid_contacts.paginate(page: params[:page], per_page: 3)
+      @invalid_contacts = current_user.invalid_contacts.paginate(page: params[:page], per_page: 4)
     end
   end
 
