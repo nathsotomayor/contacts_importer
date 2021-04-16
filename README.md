@@ -1,6 +1,6 @@
 # Contacts Importer
 
-## Installation, Init and Usage
+## Installation and Init
 
 Make sure that you have installed Rails 6+ and Ruby 2.7+ before cloning:
 
@@ -12,6 +12,12 @@ Make sure that you have installed Rails 6+ and Ruby 2.7+ before cloning:
 6. Run the server: `rails s -b 0.0.0.0 -p 3000`
 
 In the browser get into the URL `127.0.0.1:3000` to start the web app, create a new account to access or log in with a user provided.
+
+
+## App Live Demo
+
+Check the app live in Heroku here [App Link](https://csv-importer-nathsotomayor.herokuapp.com/)
+
 
 ## Tests
 
